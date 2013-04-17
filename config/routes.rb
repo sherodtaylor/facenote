@@ -1,5 +1,6 @@
 Facenote::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" } 
+  match 'auth/:provider/callback'
   root :to => 'pages#home'
   resource :friend_pages
   match '/friendpage' => 'friend_pages#new'

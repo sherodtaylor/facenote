@@ -9,6 +9,7 @@ class FriendPagesController < ApplicationController
 
   def create
     @friend_page = FriendPage.new(params[:friend_page])
+    @user = request.env["omniauth.auth"]
     respond_to do |format|
       if @friend_page.save
         format.html { render :text => 'It has been created' }
