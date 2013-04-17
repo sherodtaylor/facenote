@@ -1,9 +1,8 @@
 Facenote::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" } 
   root :to => 'pages#home'
   resource :friend_pages
   match '/friendpage' => 'friend_pages#new'
- 
 
   # first created -> highest priority.
 
