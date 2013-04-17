@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible  :first_name, :last_name, :uid, :provider, :email, :password,
+  attr_accessible  :name, :uid, :provider, :email, :password,
                    :password_confirmation, :remember_me
   has_many :friend_pages
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
