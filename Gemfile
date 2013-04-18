@@ -20,6 +20,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'devise'
+gem 'koala'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'jquery-rails'
