@@ -8,7 +8,7 @@ class FriendPagesController < ApplicationController
     
     @pictures_array = []
     @friends.each_slice(50) do |friends|
-      @graph.batch{|batch_api| friends.each{|f| @pictures_array << @graph.get_picture(f['id']).inspect}}
+      @graph.batch{|batch_api| friends.each{|f| @pictures_array << batch_api.get_picture(f['id']).inspect}}
     raise @pictures_array.inspect
   end
 

@@ -1,0 +1,6 @@
+<h1>pick your friends</h1>
+<% @friends.each_slice(50) do |friends| %>
+  <% self.@graph.batch(options) {|batch_api| friend.each {|f| picture = batch_api.get_picture(f['id']) }} %>
+  <%= image_tag picture %>
+<% end %>
+
