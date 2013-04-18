@@ -3,6 +3,7 @@ Facenote::Application.routes.draw do
   root :to => 'pages#home'
   resource :friend_pages
   match '/new_friendpage' => 'friend_pages#new'
+  match '/pick_friends' => 'users#pick_friends'
 
   # first created -> highest priority.
 

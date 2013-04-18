@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  def after_signin
+  before_filter :authenticate_user!
 
+  def pick_friends
   end
 end
 

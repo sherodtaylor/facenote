@@ -1,6 +1,6 @@
 class FriendPagesController < ApplicationController
   before_filter :authenticate_user!
-  def friendpage
+  def friend_page
   end
 
   def new
@@ -12,7 +12,7 @@ class FriendPagesController < ApplicationController
     @user = request.env["omniauth.auth"]
     respond_to do |format|
       if @friend_page.save
-        format.html { render :text => 'It has been created' }
+        format.html { render action: "friend_page"}
       else
         format.html { render action: "new" }
       end
