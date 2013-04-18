@@ -1,9 +1,6 @@
 class FriendPagesController < ApplicationController
   before_filter :authenticate_user!
-  caches_page :pick_friends
-  
-  def pick_friends
-    @friends = @graph.get_connections("me", "friends")
+  def friend_page
   end
 
   def new
