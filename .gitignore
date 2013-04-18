@@ -11,7 +11,7 @@
 /db/*.sqlite3
 
 # Ignore api keys
-/config/initializer/api_keys.yaml
+/config/initializers/api_keys.yaml
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
