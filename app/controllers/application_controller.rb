@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
     @graph = Koala::Facebook::API.new(current_user.oauth)
     @profile = @graph.get_object("me")
     @picture = @graph.get_picture(@profile['id'])
+    @friends = @graph.get_connections("me", "friends?fields=id,name,picture.type(large)")
     end
   end
 end
