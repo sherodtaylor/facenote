@@ -1,0 +1,19 @@
+<%= form_tag("add_page", :method => "post") do |f| %>
+  <div class="field">
+    <%= hidden_field_tag(:fb_id, @id) %>
+  </div>
+  <div class="field">
+    <%= hidden_field_tag(:user_id, current_user.id) %>
+  </div>
+  <div class="field">
+    <%= hidden_field_tag(:has_page, true) %>
+  </div>
+  <div class="field">
+    <%= hidden_field_tag(:name, @name) %>
+  </div>
+  <div class='actions'>
+    <%= submit_tag("Create Page") %>
+  </div>
+<% end %>
+
+

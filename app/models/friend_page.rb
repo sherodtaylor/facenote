@@ -1,4 +1,6 @@
 class FriendPage < ActiveRecord::Base
-  attr_accessible :fb_id, :location, :notes, :user_id
+  attr_accessible :fb_id, :location, :notes, :user_id, :img, :name, :has_page
+  validates :fb_id, :uniqueness => true
   belongs_to :user
+
 end

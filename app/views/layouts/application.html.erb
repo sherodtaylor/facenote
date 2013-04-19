@@ -21,14 +21,12 @@
   </ul>
   </div>
 </div>
-<div class="container">
   <% flash.each do |type, message| %>
       <div class="flash">
        <%= message %>
     </div>        
   <% end %> 
      <%= yield %>
-</div>
 
 </body>
 </html>

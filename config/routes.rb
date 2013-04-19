@@ -4,6 +4,7 @@ Facenote::Application.routes.draw do
   resource :friend_pages
   match '/new_friendpage' => 'friend_pages#new'
   match '/pick_friends' => 'friend_pages#pick_friends'
+  post '/add_page' => 'friend_pages#create'
 
   # first created -> highest priority.
 

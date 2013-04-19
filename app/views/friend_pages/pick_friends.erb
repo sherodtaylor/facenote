@@ -1,4 +1,15 @@
+<div class="container">
 <h1>pick your friends</h1>
-<%=  %>
-
-
+<ul class="thumbnails">
+<% @friends.each do |f| %>
+    <li class="span2">
+      <div class="thumbnail">
+  <div style="background-image:url('<%= f["picture"]['data']['url'] %>'); background-size: cover; background-position: 50%"></div>
+  <% @id = f['id'] %>
+   <p><%= @name = f['name'] %></p>
+       </div>
+         <%= render 'friend_pages/new_friend' %>
+    </li>
+ <% end %>
+</ul>
+</div>
