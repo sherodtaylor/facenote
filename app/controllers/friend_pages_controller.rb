@@ -1,5 +1,12 @@
 class FriendPagesController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :fb_user_auth, :only => [ :show ]
+
+  def fb_user_auth
+    unless current_user.id == FrkendPage.find_by_fb_id(params[:fb_id])
+       redirect_to root_path 
+    end
+  end
 
   def pick_friends
     @friend_page = FriendPage.new
@@ -7,7 +14,9 @@ class FriendPagesController < ApplicationController
     @friends.each{|f| @pictures << f['picture']['data']['url']}
   end
 
-
+  def show
+    @friend_page = FriendPage.find_by_fb_id(params[:fb_id])
+  end
 
   def new
     @friend_page = FriendPage.new
@@ -18,7 +27,7 @@ class FriendPagesController < ApplicationController
     @friend_page.save
     respond_to do |format|
       if @friend_page.save
-        format.html { render :text => "#{ raise FriendPage.last.inspect}"}
+        format.html { render action: "show" } 
       else
         format.html { render action: "pick_friends" }
       end

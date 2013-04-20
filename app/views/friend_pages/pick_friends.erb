@@ -2,6 +2,7 @@
 <h1>pick your friends</h1>
 <ul class="thumbnails">
 <% @friends.each do |f| %>
+  <% if FriendPage.find_by_fb_id(f['id']).nil? %>
     <li class="span2">
       <div class="thumbnail">
   <div style="background-image:url('<%= f["picture"]['data']['url'] %>'); background-size: cover; background-position: 50%"></div>
@@ -10,6 +11,7 @@
        </div>
          <%= render 'friend_pages/new_friend' %>
     </li>
+  <% end %>
  <% end %>
 </ul>
 </div>
