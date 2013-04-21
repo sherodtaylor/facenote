@@ -1,11 +1,12 @@
-<div class="container">
 <h1>pick your friends</h1>
+<div class="row-fluid">
 <ul class="thumbnails">
-<% @friends.each do |f| %>
+  <% @friends.sort_by!{ |f| f['name'] }.each do |f| %>
   <% if FriendPage.find_by_fb_id(f['id']).nil? %>
     <li class="span2">
+     <% @img = f["picture"]['data']['url'] %>
       <div class="thumbnail">
-  <div style="background-image:url('<%= f["picture"]['data']['url'] %>'); background-size: cover; background-position: 50%"></div>
+  <div style="background-image:url('<%= @img %>'); background-size: cover; background-position: 50%"></div>
   <% @id = f['id'] %>
    <p><%= @name = f['name'] %></p>
        </div>

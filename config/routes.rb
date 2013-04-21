@@ -3,9 +3,8 @@ Facenote::Application.routes.draw do
   delete '/users/sign_out' =>  'devise/sessions#destroy'
   root :to => 'pages#home'
   match '/pick_friends' => 'friend_pages#pick_friends'
-  match '/new_friendpage' => 'friend_pages#new'
-  resource :friend_pages
-  match '/:fb_id' => 'friend_pages#show'
+  resource :friend_pages, :except => [:show]
+  match '/friend_pages/(:fb_id)' => 'friend_pages#show_friend'
   
 
   # first created -> highest priority.

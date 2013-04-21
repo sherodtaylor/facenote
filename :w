@@ -3,11 +3,7 @@ class FriendPagesController < ApplicationController
   before_filter :fb_user_auth, :only => [:show_friend]
 
   def fb_user_auth
-    friendpage_id = FriendPage.find_by_fb_id(params[:fb_id]).user_id
-    unless current_user.id == friendpage_id
-       redirect_to root_path 
-    end
-  end
+    unless current_user.id == FriendPage.find_by_fb_id(@friend_page.fb_id)
 
   def pick_friends
     @friend_page = FriendPage.new

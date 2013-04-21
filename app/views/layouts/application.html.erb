@@ -23,12 +23,22 @@
   </ul>
   </div>
 </div>
-  <% flash.each do |type, message| %>
-      <div class="flash">
-       <%= message %>
-    </div>        
-  <% end %> 
-     <%= yield %>
+  <div class="container-fluid">
+    <div class="span3">
+        <ul>
+          <div class="btn-group btn-group-vertical">
+        <% FriendPage.all.each do |f| %>
+          <% unless f.has_page.nil? %>
+            <li><a class="btn btn-length" href="/friend_pages/<%= f.fb_id %>"><%= truncate(f.name, :length => 14) %></a></li>
+        <% end %>
+        <% end %>
+          </div>
+        </ul>
+    </div>
+    <div class="span8">
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>

@@ -3,6 +3,11 @@ form {
 }
 
 .thumbnail div {
-  height:150px;
-  width:150px;
+  padding: 5px;
+  width:70%;
+  height: 70px;
+}
+
+.btn-length {
+  width:70%; 
 }
