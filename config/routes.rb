@@ -2,9 +2,12 @@ Facenote::Application.routes.draw do
   devise_for :users, :skip => [:registrations, :passwords], :controllers => { :omniauth_callbacks => "omniauth_callbacks" } 
   delete '/users/sign_out' =>  'devise/sessions#destroy'
   root :to => 'pages#home'
-  match '/pick_friends' => 'friend_pages#pick_friends'
-  resource :friend_pages, :except => [:show]
-  match '/friend_pages/(:fb_id)' => 'friend_pages#show_friend'
+  get '/pick_friends' => 'friend_pages#pick_friends'
+  resource :friend_pages, :except => [:show, :update, :edit]
+  get '/friend_pages/:fb_id' => 'friend_pages#show_friend'
+  put '/friend_pages/:fb_id' => 'friend_pages#update', :as => "friend_page"
+  get '/friend_pages/:fb_id/edit' => 'friend_pages#edit'
+
   
 
   # first created -> highest priority.

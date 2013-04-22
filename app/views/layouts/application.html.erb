@@ -12,7 +12,7 @@
   <div class='navbar-inner'>
   <ul class='nav'>
   <% if user_signed_in? %>
-    <li><%= image_tag @picture %></li>
+    <li><%= image_tag @picture, :class => "img-rounded" %></li>
     <li><%= link_to 'Home', root_path %></li>
     <li><%= link_to 'Pick Friends', pick_friends_path %></li>
     <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
@@ -24,7 +24,8 @@
   </div>
 </div>
   <div class="container-fluid">
-    <div class="span3">
+    <div class="span2">
+          <h5>Friend Pages</h4>
         <ul>
           <div class="btn-group btn-group-vertical">
         <% FriendPage.all.each do |f| %>

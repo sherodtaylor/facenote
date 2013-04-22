@@ -20,7 +20,7 @@ class FriendPagesController < ApplicationController
     @friend_profile = @graph.get_object("#{@friend_page.fb_id}")
     @likes = @graph.get_connections("me", "likes/#{@friend_page.fb_id}")
     respond_to do |format|
-        format.html 
+        format.html
     end
   end
 
@@ -44,6 +44,9 @@ class FriendPagesController < ApplicationController
 
   def update
     @friend_page = FriendPage.find_by_fb_id(params[:fb_id])
+    @friend_page.update_attribute(:notes, params[:friend_page][:notes])
+    @friend_page.update_attribute(:location, params[:friend_page][:location])
+      redirect_to "/friend_pages/#{params[:fb_id]}"
   end
 
   def destroy

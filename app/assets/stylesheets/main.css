@@ -1,13 +1,33 @@
+.notes p {
+  text-size:50px !important;
+}
 form {
   padding: 5px;
 }
 
 .thumbnail div {
   padding: 5px;
-  width:70%;
-  height: 70px;
+  width:95%;
+  height: 200px;
+  border-radius:15px;
 }
-
+.thumbnail {
+  text-align: center;
+}
+h1 {
+  padding:20px;
+}
 .btn-length {
   width:70%; 
+}
+.navbar img {
+  height:35px;
+  width:35px;
+}
+h5 {
+  text-align: center;
+}
+textarea {
+  height: 100px;
+  width: 100%;
 }

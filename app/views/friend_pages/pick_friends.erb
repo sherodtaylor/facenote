@@ -3,7 +3,7 @@
 <ul class="thumbnails">
   <% @friends.sort_by!{ |f| f['name'] }.each do |f| %>
   <% if FriendPage.find_by_fb_id(f['id']).nil? %>
-    <li class="span2">
+    <li class="span5">
      <% @img = f["picture"]['data']['url'] %>
       <div class="thumbnail">
   <div style="background-image:url('<%= @img %>'); background-size: cover; background-position: 50%"></div>
