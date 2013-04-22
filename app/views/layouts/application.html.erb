@@ -25,6 +25,7 @@
 </div>
   <div class="container-fluid">
     <div class="span2">
+        <% unless current_user.id.nil? %>
           <h5>Friend Pages</h4>
         <ul>
           <div class="btn-group btn-group-vertical">
@@ -35,6 +36,7 @@
         <% end %>
           </div>
         </ul>
+      <% end %>
     </div>
     <div class="span8">
       <%= yield %>
