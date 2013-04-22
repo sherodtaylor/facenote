@@ -1,4 +1,4 @@
-<h1>pick your friends</h1>
+<h1>Pick Your Friends</h1>
 <div class="row-fluid">
 <ul class="thumbnails">
   <% @friends.sort_by!{ |f| f['name'] }.each do |f| %>
@@ -8,7 +8,7 @@
       <div class="thumbnail">
   <div style="background-image:url('<%= @img %>'); background-size: cover; background-position: 50%"></div>
   <% @id = f['id'] %>
-   <p><%= @name = f['name'] %></p>
+  <p><strong><%= @name = f['name'] %></strong></p>
        </div>
          <%= render 'friend_pages/new_friend' %>
     </li>
