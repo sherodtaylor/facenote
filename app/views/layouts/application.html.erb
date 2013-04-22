@@ -25,8 +25,8 @@
 </div>
   <div class="container-fluid">
     <div class="span2">
-        <% unless current_user.id.nil? %>
           <h5>Friend Pages</h4>
+        <% if user_signed_in? %>
         <ul>
           <div class="btn-group btn-group-vertical">
         <% FriendPage.find(current_user.id).each do |f| %>
