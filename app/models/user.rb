@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
                           oauth:auth.credentials.token,
                           oauth_expires_at: Time.at(auth.credentials.expires_at),
                          )
-    Usercreated.welcome_email.deliver
+    # Usercreated.welcome_email.deliver
     end
    
     user
