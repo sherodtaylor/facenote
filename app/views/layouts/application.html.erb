@@ -28,7 +28,7 @@
           <h5>Friend Pages</h4>
         <ul>
           <div class="btn-group btn-group-vertical">
-        <% FriendPage.all.each do |f| %>
+        <% FriendPage.find(current_user.id).each do |f| %>
           <% unless f.has_page.nil? %>
             <li><a class="btn btn-length" href="/friend_pages/<%= f.fb_id %>"><%= truncate(f.name, :length => 14) %></a></li>
         <% end %>
